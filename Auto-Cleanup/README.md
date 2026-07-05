@@ -12,16 +12,18 @@ If using another device, make sure it fits inside the space in the enclosure; a 
 
 ## Theory of Operation
 
-The code is fairly simple, and executes in 3 steps;
+The code is fairly simple, and executes in 4 steps;
 
-1. Check if we are in a development mode. At startup, we detect if a pin is high. If so, it means we were plugged in for some development purpose and should not attempt to continue (so we are not constantly closing software as we try to program the device).
+  1. Check if we are in a development mode. At startup, we detect if a pin is high. If so, it means we were plugged in for some development purpose and should not attempt to continue (so we are not constantly closing software as we try to program the device).
+  
+  2. Delay for 20 seconds. There are situations where we do not want to cleanup everything on the computer, so a 20 second grace period is given for the user to re-activate the equipment, or for another user to "take over" the open windows.
+  
+  3. Close all open windows. This is done by emulating a keyboard, opening the Run Dialog (Win + R), and then executing the following PowerShell command;
+  
+    > Get-Process | Where-Object {$_.MainWindowTitle -ne ""} | Stop-Process -Force
+  
+  4. Force-show the screensaver. Similar to above, open the Run Dialog and execute the following;
+  
+    > scrnsave.scr /s
 
-2. Close all open windows. This is done by emulating a keyboard, opening the Run Dialog (Win + R), and then executing the following PowerShell command;
-
-> Get-Process | Where-Object {$_.MainWindowTitle -ne ""} | Stop-Process -Force
-
-3. Force-show the screensaver. Similar to above, open the Run Dialog and execute the following;
-
-> scrnsave.scr /s
-
-Once executing these 3 steps, the device will stop operating. 
+Once these 4 steps are completed, the device will suspend itself.
