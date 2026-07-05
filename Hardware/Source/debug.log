@@ -1,0 +1,7 @@
+[0703/204930.168:ERROR:ui\gl\direct_composition_support.cc:612] AMD VideoProcessorGetOutputExtension failed: The parameter is incorrect. (0x80070057)
+[0705/104101.914:WARNING:ui\gl\angle_platform_impl.cc:52] Shader.cpp:774 (gl::Shader::resolveCompile): Compiler log: WARNING: 0:9: '=' : global variable initializers should be constant expressions (uniforms and globals are allowed in global initializers for legacy compatibility)
+
+[0705/125917.242:WARNING:ui\gl\angle_platform_impl.cc:52] Shader.cpp:774 (gl::Shader::resolveCompile): Compiler log: WARNING: 0:9: '=' : global variable initializers should be constant expressions (uniforms and globals are allowed in global initializers for legacy compatibility)
+
+[0705/135349.382:WARNING:ui\gl\angle_platform_impl.cc:52] Shader.cpp:774 (gl::Shader::resolveCompile): Compiler log: WARNING: 0:9: '=' : global variable initializers should be constant expressions (uniforms and globals are allowed in global initializers for legacy compatibility)
+
